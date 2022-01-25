@@ -33,3 +33,4 @@ function onBtnStopClick(evt) {
     btnStartEl.disabled = false;
     btnStopEl.disabled = true;
 };
+
