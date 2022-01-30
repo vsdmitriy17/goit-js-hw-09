@@ -27,6 +27,7 @@ const options = {
 };
 
 let eventDate;
+let timerId;
 buttonEl.disabled = true;
 
 inputEl.addEventListener('focus', onInputChange);
@@ -37,13 +38,17 @@ function onInputChange(evt) {
 };
 
 function onButtonClick(evt) {
-    setInterval(timeCount, 1000);
+    timerId = setInterval(timeCount, 1000);
     buttonEl.disabled = true;
 };
 
 function timeCount() {
     const currentDate = Date.now();
-    spanChange(convertMs(eventDate - currentDate));
+    if (eventDate > currentDate) {
+        return spanChange(convertMs(eventDate - currentDate));
+    };
+
+    clearInterval(timerId);
 };
 
 function spanChange({ days, hours, minutes, seconds }) {
