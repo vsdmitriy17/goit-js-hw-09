@@ -39,14 +39,14 @@ function onFormSubmit(evt) {
         console.log(`✅ Fulfilled promise ${position} in ${delay} ms`);
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay} ms`,
           {
-            timeout: 12000,
+            timeout: 8000,
           },);
       })
       .catch(({ position, delay }) => {
         console.log(`❌ Rejected promise ${position} in ${delay} ms`);
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay} ms`,
           {
-            timeout: 12000,
+            timeout: 8000,
           },);
       });
   };
@@ -55,8 +55,8 @@ function onFormSubmit(evt) {
   btnDisable();
 };
 
-// Ф-ция принемает аргументы position, delay:
-//  1) создает промис в кот по условию выполнения ф - ции shouldResolve, отложенно с отсрочкой delay
+// Ф-ция принимает аргументы position, delay:
+//  1) создает промис в кот по условию выполнения ф - ции shouldResolve, отложенно, с отсрочкой delay
 //     - вызывает метод resolve(кот.возвращает { position, delay }) - если промис Fulfilled
 //     - вызывает метод reject(кот.возвращает { position, delay }) - если промис Rejected
 //  2) возвращает промис

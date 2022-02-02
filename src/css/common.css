@@ -9,10 +9,58 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #fafafa;
   color: #212121;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 1.5;
+  letter-spacing: 0.03;
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+button {
+  border-radius: 12px;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.23;
+  letter-spacing: 0.02;
+}
+
+.timer {
+  display: flex;
+  margin-top: 40px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field:not(:last-child) {
+    margin-right: 20px;
+  }
+
+.value {
+  color: blue;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.23;
+  letter-spacing: 0.03;
+}
+
+.label_3:not(:last-child) {
+    margin-right: 20px;
+  }
+
+.input {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.03;
 }
