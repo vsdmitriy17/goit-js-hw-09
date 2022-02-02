@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 
 //Находим элементы form, input, textarea, button
 const formEl = document.querySelector('.form');
@@ -27,9 +28,17 @@ function onFormSubmit(evt) {
     createPromise(currentPosition, currentDelay)
       .then(({ position, delay }) => {
         console.log(`✅ Fulfilled promise ${position} in ${delay} ms`);
+        Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay} ms`,
+          {
+            timeout: 15000,
+          },);
       })
       .catch(({ position, delay }) => {
         console.log(`❌ Rejected promise ${position} in ${delay} ms`);
+        Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay} ms`,
+          {
+            timeout: 15000,
+          },);
       });
   };
 
@@ -55,7 +64,7 @@ function createPromise(position, delay) {
 
 function onInputChange(evt) {
   if (!+evt.currentTarget.value || !Number.isInteger(+evt.currentTarget.value)) {
-    alert("Введите целое число не меньше 0!");
+    Notiflix.Report.warning('ВНИМАНИЕ!', 'Введите целое число не меньше 0!', 'Ok');
     evt.currentTarget.value = "";
     btnDisable();
   } else { btnDisable(); };
